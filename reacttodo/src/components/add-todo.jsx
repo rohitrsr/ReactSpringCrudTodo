@@ -7,7 +7,7 @@ export const AddToDo = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const saveTodo = () => {
-        axios.post(`https://localhost:8082/todoApp/todo`, {
+        axios.post(`http://localhost:8082/todoApp/todos`, {
             name,
             description
         })

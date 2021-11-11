@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { AddToDo } from './components/add-todo';
 import { BrowserRouter as Router, Route } from 'react-router-dom';

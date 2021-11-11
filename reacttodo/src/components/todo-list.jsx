@@ -8,7 +8,7 @@ export const TodoList = () => {
     const [APIData, setAPIData] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8082/todo/todos`).then((response) => {
+        axios.get(`http://localhost:8082/todoapp/todos`).then((response) => {
             setAPIData(response.data);
         })
     }, [])
@@ -23,14 +23,14 @@ export const TodoList = () => {
 
     const onDelete = (id) => {
         console.log(id);
-        axios.delete(`http://localhost:8082/todo/${id}`)
+        axios.delete(`http://localhost:8082/todoapp/todos/${id}`)
             .then(() => {
                 getData();
             })
     }
 
     const getData = () => {
-        axios.get(`http://localhost:8082/todo/todos`)
+        axios.get(`http://localhost:8082/todoapp/todos`)
             .then((getData) => {
                 setAPIData(getData.data);
             })
@@ -55,10 +55,10 @@ export const TodoList = () => {
                                 <Table.Cell>{data.description}</Table.Cell>
                                 <Link to='/updateTodo'>
                                     <Table.Cell>
-                                        <Button onClick = {() => setAPIData(data)}>Update</Button>
+                                        <Button onClick = {() => setData(data)}>Update</Button>
                                     </Table.Cell>
                                     <Table.Cell>
-                                        <Button onClick = {() => onDelete(data.id)}></Button>
+                                        <Button onClick = {() => onDelete(data.id)}>Delete</Button>
                                     </Table.Cell>
                                 </Link>
                             </Table.Row>

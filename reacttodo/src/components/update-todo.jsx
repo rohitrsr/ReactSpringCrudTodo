@@ -12,10 +12,10 @@ export const UpdateTodo = () => {
         setID(localStorage.getItem('Id'));
         setTitle(localStorage.getItem('Title'));
         setDescription(localStorage.getItem('Description'));
-    })
+    }, []);
 
     const updateData = () => {
-        axios.put(`http://localhost:8080/todo/${id}`, {
+        axios.put(`http://localhost:8082/todoapp/todos/${id}`, {
             title,
             description
         })
@@ -27,11 +27,11 @@ export const UpdateTodo = () => {
             <Form className="create-form">
                 <Form.Field>
                     <label>Title</label>
-                    <input placeholder='Title' onChange={(e) => setTitle(e.target.value)}/>
+                    <input placeholder='Title' value= {title} onChange={(e) => setTitle(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
                     <label>Description</label>
-                    <input placeholder='Description' onChange={(e) => setDescription(e.target.value)}/>
+                    <input placeholder='Description' value = {description} onChange={(e) => setDescription(e.target.value)}/>
                 </Form.Field>
                 <Button type='submit' onClick = {updateData}>Update</Button>
             </Form>
